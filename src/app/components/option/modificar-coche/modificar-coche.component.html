@@ -1,0 +1,16 @@
+<div class="contentGame">
+  <div class="divConteinerStartMenu">
+    <div class="divGrid">
+      <div class="divGridGrid">
+        <h1>Modificar auto</h1>
+        <h3>{{error}}</h3>
+      </div>
+      <div class="divList">
+        <app-generic-dynamic-list [listado]='listado' [listGenerate]="list" (retorno)="accion($event)"></app-generic-dynamic-list>
+        <app-genericformclass [form]="form" (FormReturn)='modifcar($event)'></app-genericformclass>
+      </div>
+    </div>
+
+  </div>
+</div>
+

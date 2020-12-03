@@ -1,0 +1,16 @@
+<div class="contentGame">
+  <div class="divConteinerStartMenu">
+    <div class="divGrid">
+      <div class="divGridGrid">
+        <h1>Lista de tus autos</h1>
+        <h3>{{error}}</h3>
+      </div>
+      <div class="divList">
+        <app-generic-selector (emit)="select($event)" [selector]="selector"></app-generic-selector>
+      </div>
+      <app-generic-dynamic-list [listado]="listado | filtro : aux" [listGenerate]="list" ></app-generic-dynamic-list>
+    </div>
+
+  </div>
+</div>
+

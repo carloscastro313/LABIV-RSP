@@ -1,0 +1,42 @@
+<form *ngIf="form != null" [formGroup]="form.FormDynamic">
+  <div *ngFor="let item of form.name; let i = index">
+    <div [ngSwitch]="form.Type[i]">
+      <mat-form-field class="inputLogin" *ngSwitchCase="'text'">
+        <mat-label style="color: black;">{{item}}</mat-label>
+        <input type="text" matInput formControlName={{item}}>
+        <mat-error *ngIf="form.FormDynamic.get(item).touched && form.FormDynamic.get(item).invalid">Falta ingresar</mat-error>
+      </mat-form-field>
+      <mat-form-field class="inputLogin" *ngSwitchCase="'password'">
+        <mat-label style="color: black;">{{item}}</mat-label>
+        <input type="password" matInput formControlName={{item}}>
+        <mat-error *ngIf="form.FormDynamic.get(item).touched && form.FormDynamic.get(item).invalid">Falta ingresar</mat-error>
+      </mat-form-field>
+      <mat-form-field class="inputLogin" *ngSwitchCase="'number'">
+        <mat-label style="color: black;">{{item}}</mat-label>
+        <input type="number" min="1" matInput formControlName={{item}}>
+        <mat-error *ngIf="form.FormDynamic.get(item).touched && form.FormDynamic.get(item).invalid">Falta ingresar</mat-error>
+      </mat-form-field>
+      <mat-form-field class="inputLogin" *ngSwitchCase="'datetime'">
+        <mat-label style="color: black;">{{item}}</mat-label>
+        <input type="datetime" min="1" matInput formControlName={{item}}>
+        <mat-error *ngIf="form.FormDynamic.get(item).touched && form.FormDynamic.get(item).invalid">Falta ingresar</mat-error>
+      </mat-form-field>
+      <div *ngSwitchCase="'date'">
+        <input type="date" formControlName={{item}}>
+        <mat-error *ngIf="form.FormDynamic.get(item).touched && form.FormDynamic.get(item).invalid">Falta ingresar</mat-error>
+      </div>
+      <div *ngSwitchCase="'file'">
+        <input type="file" (change)="upload($event,form.FormDynamic.get(item))" accept=".png,.jpg">
+        <mat-error *ngIf="form.FormDynamic.get(item).touched && form.FormDynamic.get(item).invalid">Falta ingresar</mat-error>
+      </div>
+      <mat-form-field  *ngSwitchCase="'select'">
+        <mat-label style="color: black;">{{item}}</mat-label>
+        <mat-select formControlName={{item}}>
+          <mat-option *ngFor="let sel of form.select[item]" [value]="sel">{{sel}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.FormDynamic.get(item).touched && form.FormDynamic.get(item).invalid">Falta ingresar</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <button mat-button (click)="retorno()">Submit</button>
+</form>

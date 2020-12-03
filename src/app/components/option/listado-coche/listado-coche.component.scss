@@ -1,0 +1,47 @@
+.divConteinerStartMenu{
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  right: 10%;
+  margin-left: -100px;
+  margin-top: -100px;
+  margin-right: -100px;
+}
+.divGrid{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 5px;
+}
+.divGridGrid{
+  display: grid;
+  grid-template-columns: 300px 600px;
+  grid-gap: 10px;
+}
+
+.divList{
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-gap: 100px;
+}
+
+
+.animationFadeIn{
+  animation:fadeIn 1s linear;
+}
+
+.contentGame{
+  background: hsla(0, 28%, 95%, 0.24);
+  border-radius: 12px;
+  display: block;
+  width: 90%;
+  height: 85%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes fadeIn{
+  0%{opacity: 0%;};
+  100%{opacity: 100%};
+}

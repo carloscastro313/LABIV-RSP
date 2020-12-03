@@ -1,0 +1,22 @@
+<div class="navG" *ngIf="nav != null">
+  <mat-sidenav-container class="example-container" style="background: transparent;">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+      <div class="conteinerNav">
+        <mat-divider></mat-divider>
+        <div *ngFor="let item of nav.btn;let i = index">
+          <button mat-button class="btnNav" (click)="SideNavBtnAccion()" [routerLink]="nav.route[i]" routerLinkActive="active">{{item}}</button>
+        </div>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content >
+      <div class="divGrid">
+        <p><button mat-button class="btnIcon" (click)="sidenav.toggle()"><img src="../../../../assets/icons/mainPage/menu.svg"></button></p>
+        <h1> </h1>
+        <button mat-button (click)="LogOut()" style="margin-bottom: 10px;margin-left: 5px;">LogOut</button>
+      </div>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+

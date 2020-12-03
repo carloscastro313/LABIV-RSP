@@ -1,0 +1,8 @@
+<mat-form-field *ngIf="selector != null" appearance="fill">
+  <mat-label>{{selector.name}}</mat-label>
+  <mat-select [formControl]="selector.selector" (closed)="action()">
+    <mat-option *ngFor="let item of selector.select; let i = index" [value]="selector.value[i]">
+      {{item}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

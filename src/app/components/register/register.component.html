@@ -1,0 +1,29 @@
+<div id="fade" class="animationFadeIn">
+
+  <div id="conteiner" class="contentInput">
+    <table>
+      <tr>
+        <td>
+          <h1 style="margin: 10px; margin-top: 30px;">Register</h1>
+        </td>
+      </tr>
+    </table>
+    <form [formGroup]="myForm">
+      <mat-form-field class="inputLogin">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="correo">
+        <mat-error *ngIf="myForm.get('correo').touched && myForm.get('correo').invalid">Correo invalido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="inputLogin">
+        <mat-label>Clave</mat-label>
+        <input matInput type="password" formControlName="clave">
+        <mat-error *ngIf="myForm.get('clave').touched && myForm.get('clave').invalid">Clave invalida</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button (click)="btn_registrar()">Registrar</button>
+
+      <span>{{error}}</span>
+    </form>
+  </div>
+</div>
